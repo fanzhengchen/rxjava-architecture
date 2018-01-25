@@ -30,6 +30,7 @@ public class Task implements Runnable{
         ExecutorService executorService = Executors.newFixedThreadPool(2);
 
             Flowable.just(1)
+                    .subscribeOn(Schedulers.io())
                     .delay(1, TimeUnit.SECONDS)
                     .observeOn(Schedulers.from(executorService))
                     .map(integer -> {

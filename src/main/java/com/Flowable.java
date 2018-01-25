@@ -33,8 +33,8 @@ public abstract class Flowable<T> implements Publisher<T> {
         return new FlowableMap<T,R>(this,mapper);
     }
 
-    public final Flowable subscribeOn(Scheduler scheduler){
-        return new FlowableSubscribeOn(scheduler);
+    public final Flowable<T> subscribeOn(Scheduler scheduler){
+        return new FlowableSubscribeOn<T>(this,scheduler);
     }
 
     public final void subscribe(FlowableSubscriber<? super T> s){
