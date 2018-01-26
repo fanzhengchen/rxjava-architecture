@@ -37,6 +37,11 @@ public class fzc {
                         }
                     }
                 });
+
+
+        /**
+         * wait util rxjava2 process complete
+         */
         lock.lock();
         try {
             condition.await();
