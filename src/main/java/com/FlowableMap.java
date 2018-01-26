@@ -21,10 +21,6 @@ public class FlowableMap<T,R> extends Flowable<R> {
         source.subscribe(new FlowableMapSubscriber<T,R>(s,mapper));
     }
 
-    @Override
-    public void subscribe(Subscriber<? super R> s) {
-        subscribeActual(s);
-    }
 
     public static class FlowableMapSubscriber<T,R> implements Subscriber<T>, Subscription{
 
